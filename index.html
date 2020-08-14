@@ -23,6 +23,19 @@
     <script>
         v.dlog('Открой консоль на F12');
         v.help();
+        var root = document.documentElement;
+        document.addEventListener("mousemove", evt => {
+            let x = evt.clientX / innerWidth;
+            let y = evt.clientY / innerHeight;
+            root.style.setProperty("--mouse-x", x);
+            root.style.setProperty("--mouse-y", y);
+        });
+        var updateHour = () => {
+            var hour = new Date().getHours();
+            root.style.setProperty("--hour", hour);
+        };
+        setInterval(updateHour, 60000);
+        updateHour();
     </script>
       <br><img src="logo.png"><br><a href="https://zen.yandex.ru/media/vsevolodhtml/biblioteka-js-dlia-raboty-v-konsoli-5f365736670b436a57181066">Пост с подробным описанием!</a>
       <textarea style="width: 100%;min-height: 100px;">Подключайся: <script scr="https://raw.githubusercontent.com/v-libr/v-libr.github.io/master/v.js">v.help()</script></textarea>
