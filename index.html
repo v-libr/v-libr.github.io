@@ -5,6 +5,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>V</title>
         <link rel="icon" href="logo.png">
+        <style>
+        html {
+            background-color: darkblue;
+            min-height: 100vh;
+            --center: calc(100% * var(--mouse-x, .5)) calc(100% * var(--mouse-y, .5));
+            --hue: calc(var(--hour)  * 15);
+            --darkColor: hsl(var(--hue), 10%,10%);
+            --lightColor: hsl(var(--hue), 0%, 50%);
+            background: conic-gradient(at var(--center), var(--darkColor) calc(var(--hour) / 24 * 1turn), var(--lightColor) 0);
+        }
+        </style>
     </head>
     <body style="text-align: center;">
     <script src="v.js"></script>
